@@ -5,6 +5,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: "Nunito",sans-serif;
 }
 
 /* body{
@@ -12,12 +13,12 @@
 } */
 
 .Hero{
-background-color: #008dff;
+background-color:  white
 }
 
 /* Navbar  */
 .nav-bar{
-    padding: 0px 30px ;
+    padding: 0px 50px ;
     height: 70px;
     max-width: 1440px;
     width: 100%;
@@ -25,7 +26,10 @@ background-color: #008dff;
     display: flex;
     justify-content: space-between;
     align-items: center;
+ 
+ 
 }
+
 
 .nav-bar h2 {
 font-size: 40px;
@@ -33,13 +37,53 @@ font-size: 40px;
 .nav-bag{
     display: flex;
     align-items: center;
+    position: relative;
+
+}
+
+.nav-bar a {
+    text-decoration-line: none ;
+    color: #12306a;
 }
 
 .bag-quantity{
     display: flex;
     align-items: center;
     justify-self: center;
-    height: 25px;
-    width: 25px;
+    text-align: center;
+    height: 20px;
+    width: 20px;
+    text-decoration-line: none;
+    background-color:#008dff; 
+    border-radius: 50%;
+    margin: 0 auto;
+    padding-left: 6PX;
+    position: absolute;
+    top: 0px;
+    left: 30px;
+    right: 0px;
+    bottom: 0px;
 
+}
+
+/* Not found  */
+
+.not-found{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+  color:#008dff; 
+  cursor: pointer;
+
+
+}
+
+.not-found h1 {
+    font-size: 55px;
+}
+
+.not-found p {
+    font-size: 20px;
 }

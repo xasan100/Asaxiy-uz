@@ -3,6 +3,7 @@ import { BrowserRouter ,Route,Switch ,Redirect } from "react-router-dom";
 import Cart from "../Components/Cart.jsx";
 import Home from "../Components/Home.jsx";
 import NavBar from "../Components/NavBar.jsx";
+import NotFound from "../Components/NotFound.jsx";
 
 import   "./App.css"
 function App() {
@@ -11,7 +12,9 @@ function App() {
 <NavBar/>
 <Switch>
   <Route path={'/cart'} component={Cart} />
-  <Route path={'/'} component={Home } />
+  <Route path={'/not-found'} component={NotFound} />
+  <Route path={'/'} exactf component={Home } />
+  <Redirect to={'/not-found'}  />
 </Switch>
     </BrowserRouter>
   );
