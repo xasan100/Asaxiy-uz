@@ -1,0 +1,45 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,400;0,600;0,800;1,200&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* body{
+    padding: 0px 30px;
+} */
+
+.Hero{
+background-color: #008dff;
+}
+
+/* Navbar  */
+.nav-bar{
+    padding: 0px 30px ;
+    height: 70px;
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-bar h2 {
+font-size: 40px;
+}
+.nav-bag{
+    display: flex;
+    align-items: center;
+}
+
+.bag-quantity{
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    height: 25px;
+    width: 25px;
+
+}
