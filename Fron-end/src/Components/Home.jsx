@@ -1,8 +1,18 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "./features/cartSlice";
 import { productsApi, useGetAllProductsQuery } from "./features/ProductsApi";
 
+
 const Home = () => {
-const {data,error,isLoading} = useGetAllProductsQuery()
+
+   const  dispatch=useDispatch()
+   const {data,error,isLoading} = useGetAllProductsQuery()
+
+   const handleAddToCart =(val)=> { 
+      dispatch(addToCart(val))
+      console.log(      dispatch(addToCart(val)),'ruqi');
+   }
+   
     return ( 
    <div className="home-container">
    {isLoading ? <p>Loading...</p>:error ? <p> An error occured...</p>:
@@ -18,7 +28,7 @@ const {data,error,isLoading} = useGetAllProductsQuery()
     <span>{val.desc}</span>
     <span className="price">${val.price}</span>
    </div>
-   <button>Add TO Cart</button>
+   <button onClick={()=>handleAddToCart(val)}>Add TO Cart</button>
    </div>)
 })}
    </div>

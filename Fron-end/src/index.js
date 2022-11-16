@@ -38,12 +38,14 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import productsReducer, { productsFetch } from './Components/features/ProductSlice';
 import { productsApi } from './Components/features/ProductsApi';
+import cartReducer from "./Components/features/cartSlice";
 // import productsReducer, { productsFetch } from "";
 // import cartReducer, { getTotals } from "";
 
 const store = configureStore({
   reducer: {
     products: productsReducer,
+    cart: cartReducer,
     [productsApi.reducerPath]: productsApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
