@@ -19,7 +19,8 @@ const products =[
         desc: "6.5 inch display", 
         price: 399,
         image: "https://res.cloudinary.com/dedrdzocr/image/upload/v1668555302/Asaxiy.uz/galaxyS_onr7zp.png"
-    }
+    },
+  
 ];
 
 module.exports=products;
