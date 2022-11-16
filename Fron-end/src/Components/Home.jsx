@@ -4,7 +4,7 @@ import { productsApi, useGetAllProductsQuery } from "./features/ProductsApi";
 const Home = () => {
 const {data,error,isLoading} = useGetAllProductsQuery()
     return ( 
-   <div>
+   <div className="home-container">
    {isLoading ? <p>Loading...</p>:error ? <p> An error occured...</p>:
    <>
    <h2>New Arrivals</h2>
@@ -12,7 +12,7 @@ const {data,error,isLoading} = useGetAllProductsQuery()
 {data?.map((val)=>{ 
     return (
    <div key={val.id} className="product">
-   <h3>{productsApi.name}</h3> 
+   <h3>{val.name}</h3> 
    <img src={val.image} alt={val.name} />    
    <div className="details">
     <span>{val.desc}</span>
