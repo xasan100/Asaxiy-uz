@@ -197,7 +197,8 @@ padding: 2rem 4rem;
 }
 
 .cart-item .cart-product {
-    display: flex;
+display: flex;
+
 }
 
 .cart-item .cart-product img {

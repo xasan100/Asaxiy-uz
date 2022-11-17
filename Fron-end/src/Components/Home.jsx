@@ -20,7 +20,7 @@ const Home = () => {
    <>
    <h2>New Arrivwals</h2>
    <div className="products">
-   {data?.map((cartItem)=>{ 
+   {data?.slice(0,-1).map((cartItem)=>{ 
     return (
    <div key={cartItem.id} className="product">
    <h3>{cartItem.item}</h3> 
