@@ -14,11 +14,11 @@ dispatch(remoFromCart(cartItem))
 }
 
 const handelDecreaseCart=(cartItem)=>{
-dispatch(decreaseCart(cartItem))
+console.log(dispatch(decreaseCart(cartItem)));
 }
  
 const  handelIncreaseCart =(cartItem) =>{
-dispatch(addToCart(cartItem))
+console.log(dispatch(addToCart(cartItem)));
 }
 const  handelClearCart =() =>{
     dispatch(Clearcart())
@@ -45,7 +45,7 @@ const  handelClearCart =() =>{
     <h3>Total</h3>
     </div>
     <div className="cart-itmes">
-        {cart.cartItems?.slice(0,1).map((cartItem)=>{
+        {cart.cartItems?.map((cartItem)=>{
             return (
                 <div key={cartItem.id} className="cart-item">
                   <div className="cart-product">
@@ -61,12 +61,12 @@ const  handelClearCart =() =>{
                   </div>
                   <div className="cart-product-price">${cartItem.price}</div>
                   <div className="cart-product-quantity"> 
-                 <button onClick={()=>handelDecreaseCart(+cartItem)}>-</button> 
-                 <div className="count"> {cartItem .cartQuantity}</div>
-                 <button onClick={()=>handelIncreaseCart(+cartItem)}>+</button>
+                 <button onClick={()=>handelDecreaseCart(cartItem)}>-</button> 
+                 <div className="count"> {cartItem.cartQuantity}</div>
+                 <button onClick={()=>handelIncreaseCart(cartItem)}>+</button>
                  </div>
                     <div className="cart-product-total-price">
-                        ${cartItem.price* cartItem.cartQuantity}
+                        ${cartItem.price * cartItem.cartQuantity}
                     </div>
                 </div>
             )

@@ -18,7 +18,7 @@ const  cartSlice=createSlice({
      );
    if (itemIndex>=0) {
     state.cartItems[itemIndex].cartQuantity +=1;
-    toast.info(`increased ${state.cartItems[itemIndex].name} product quantity`,{ 
+    toast.info(`increased ${state.cartItems[itemIndex].item} product quantity`,{ 
         position:"bottom-left" ,
     })
    }
@@ -26,7 +26,7 @@ const  cartSlice=createSlice({
     const tempProductItem={...action.payload,cartQuantity:1};
     state.cartItems.push(tempProductItem); 
 
-    toast.success(` ${action.payload.name} add new to cart` ,{
+    toast.success(` ${action.payload.item} add new to cart` ,{
         position:"bottom-left" ,
        })
     }
@@ -36,7 +36,7 @@ const  cartSlice=createSlice({
    const nexTcartItms=  state.cartItems.filter((cartItem) =>cartItem.id!==action.payload.id)
    state.cartItems=nexTcartItms;
    localStorage.setItem("cartItems",JSON.stringify(state.cartItems));
-   toast.error(` ${action.payload.name} removed from cart` ,{
+   toast.error(` ${action.payload.item} removed from cart` ,{
     position:"bottom-left" ,
    })
  },
@@ -46,14 +46,14 @@ const  cartSlice=createSlice({
  )
  if (state.cartItems[item].cartQuantity > 1) {
     state.cartItems[item].cartQuantity -=1
-    toast.info(` Decreased ${action.payload.name} cart  quantitiy` ,{
+    toast.info(` Decreased ${action.payload.item} cart  quantitiy` ,{
         position:"bottom-left" ,
        })
  }else if ( state.cartItems[item].cartQuantity === 1) {
 
     const nexTcartItms=  state.cartItems.filter((cartItem) =>cartItem.id!==action.payload.id)
     state.cartItems=nexTcartItms;
-    toast.error(` ${action.payload.name} removed from cart` ,{
+    toast.error(` ${action.payload.item} removed from cart` ,{
         position:"bottom-left" ,
     })
 }
