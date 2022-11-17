@@ -45,7 +45,7 @@ const  handelClearCart =() =>{
     <h3>Total</h3>
     </div>
     <div className="cart-itmes">
-        {cart.cartItems.slice(0,-1).map((cartItem)=>{
+        {cart.cartItems?.slice(0,1).map((cartItem)=>{
             return (
                 <div key={cartItem.id} className="cart-item">
                   <div className="cart-product">
