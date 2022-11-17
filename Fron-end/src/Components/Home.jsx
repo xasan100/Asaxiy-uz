@@ -23,10 +23,11 @@ const Home = () => {
    {data?.map((cartItem)=>{ 
     return (
    <div key={cartItem.id} className="product">
-   <h3>{cartItem.name}</h3> 
+   <h3>{cartItem.item}</h3> 
    <img src={cartItem.image} alt={cartItem.name} />    
    <div className="details">
     <span>{cartItem.desc}</span>
+    <span className="price">{cartItem.brand}</span>
     <span className="price">${cartItem.price}</span>
    </div>
    <button onClick={()=>handleAddToCart(cartItem)}>Add TO Cart</button>

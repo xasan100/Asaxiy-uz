@@ -1,5 +1,5 @@
+import { useEffect } from "react";
 import { useSelector ,useDispatch} from "react-redux";
-
 import { Link } from "react-router-dom";
 import { addToCart, decreaseCart, remoFromCart,Clearcart } from "./features/cartSlice";
 
@@ -22,7 +22,7 @@ dispatch(addToCart(cartItem))
 }
 const  handelClearCart =() =>{
     dispatch(Clearcart())
-    }
+ }
 
     return ( 
         <div className="cart-container">
@@ -51,7 +51,7 @@ const  handelClearCart =() =>{
                   <div className="cart-product">
                     <img src={cartItem?.image} alt={cartItem?.name} />
                     <div>
-                        <h3>{cartItem.name}</h3>
+                        <h3>{cartItem.item}</h3>
                         <h3>{cartItem.desc}</h3>
                         <button onClick={()=> handelRemoteFromCart(cartItem)}><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-trash" viewBox="0 0 16 16">
                          <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
@@ -61,9 +61,9 @@ const  handelClearCart =() =>{
                   </div>
                   <div className="cart-product-price">${cartItem.price}</div>
                   <div className="cart-product-quantity"> 
-                 <button onClick={()=>handelDecreaseCart(cartItem)}>-</button> 
+                 <button onClick={()=>handelDecreaseCart(+cartItem)}>-</button> 
                  <div className="count"> {cartItem .cartQuantity}</div>
-                 <button onClick={()=>handelIncreaseCart(cartItem)}>+</button>
+                 <button onClick={()=>handelIncreaseCart(+cartItem)}>+</button>
                  </div>
                     <div className="cart-product-total-price">
                         ${cartItem.price* cartItem.cartQuantity}
