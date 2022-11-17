@@ -1,16 +1,17 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { addToCart } from "./features/cartSlice";
 import { productsApi, useGetAllProductsQuery } from "./features/ProductsApi";
 
 
 const Home = () => {
-
+   const history=useHistory()
    const  dispatch=useDispatch()
    const {data,error,isLoading} = useGetAllProductsQuery()
 
    const handleAddToCart =(val)=> { 
       dispatch(addToCart(val))
-      console.log(      dispatch(addToCart(val)),'ruqi');
+      history.push('/cart')
    }
    
     return ( 
@@ -19,7 +20,7 @@ const Home = () => {
    <>
    <h2>New Arrivals</h2>
    <div className="products">
-{data?.map((val)=>{ 
+   {data?.map((val)=>{ 
     return (
    <div key={val.id} className="product">
    <h3>{val.name}</h3> 
