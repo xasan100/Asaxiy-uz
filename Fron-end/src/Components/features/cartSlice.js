@@ -13,8 +13,7 @@ const  cartSlice=createSlice({
         addToCart(state, action) {
             const itemIndex = state.cartItems.findIndex(
               (item) => item.id === action.payload.id
-            );
-
+     );
    if (itemIndex>=0) {
     state.cartItems[itemIndex].cartQuantity +=1;
     toast.info(`increased ${state.cartItems[itemIndex].name} product quantity`,{ 
@@ -29,9 +28,14 @@ const  cartSlice=createSlice({
    })
     }
     localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+ },
+ remoFromCart(state,action) {
+   const nexTcartItms=  state.cartItems.filter((cartItem) =>cartItem.id!==action.payload.id)
+   state.cartItems=nexTcartItms
  }
+
 },
 });
 
-export const { addToCart }=cartSlice.actions;
+export const { addToCart, remoFromCart }=cartSlice.actions;
 export default cartSlice.reducer;

@@ -9,8 +9,8 @@ const Home = () => {
    const  dispatch=useDispatch()
    const {data,error,isLoading} = useGetAllProductsQuery()
 
-   const handleAddToCart =(val)=> { 
-      dispatch(addToCart(val))
+   const handleAddToCart =(cartItem)=> { 
+      dispatch(addToCart(cartItem))
       history.push('/cart')
    }
    
@@ -18,18 +18,18 @@ const Home = () => {
    <div className="home-container">
    {isLoading ? <p>Loading...</p>:error ? <p> An error occured...</p>:
    <>
-   <h2>New Arrivals</h2>
+   <h2>New Arrivwals</h2>
    <div className="products">
-   {data?.map((val)=>{ 
+   {data?.map((cartItem)=>{ 
     return (
-   <div key={val.id} className="product">
-   <h3>{val.name}</h3> 
-   <img src={val.image} alt={val.name} />    
+   <div key={cartItem.id} className="product">
+   <h3>{cartItem.name}</h3> 
+   <img src={cartItem.image} alt={cartItem.name} />    
    <div className="details">
-    <span>{val.desc}</span>
-    <span className="price">${val.price}</span>
+    <span>{cartItem.desc}</span>
+    <span className="price">${cartItem.price}</span>
    </div>
-   <button onClick={()=>handleAddToCart(val)}>Add TO Cart</button>
+   <button onClick={()=>handleAddToCart(cartItem)}>Add TO Cart</button>
    </div>)
 })}
    </div>
