@@ -1,11 +1,16 @@
 import { useEffect } from "react";
 import { useSelector ,useDispatch} from "react-redux";
 import { Link } from "react-router-dom";
-import { addToCart, decreaseCart, remoFromCart,Clearcart } from "./features/cartSlice";
+import { addToCart, decreaseCart, remoFromCart,Clearcart, getTotals,  } from "./features/cartSlice";
+
 
 
 const Cart = () => {
- const dispatch=useDispatch()
+    const dispatch=useDispatch()
+ 
+
+    
+
 const cart=useSelector((state=>state.cart ))
 
 
@@ -23,6 +28,7 @@ console.log(dispatch(addToCart(cartItem)));
 const  handelClearCart =() =>{
     dispatch(Clearcart())
  }
+
 
     return ( 
         <div className="cart-container">
@@ -96,3 +102,4 @@ const  handelClearCart =() =>{
 }
     
 export default Cart;
+
