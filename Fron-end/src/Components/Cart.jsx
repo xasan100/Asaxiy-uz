@@ -10,11 +10,11 @@ const cart=useSelector((state=>state.cart ))
 
 
 const handelRemoteFromCart =(cartItem) =>{
-dispatch(remoFromCart(cartItem))
+console.log(dispatch(remoFromCart(+cartItem)),'ruqi');
 }
 
 const handelDecreaseCart=(cartItem)=>{
-console.log(dispatch(decreaseCart(cartItem)));
+dispatch(decreaseCart(cartItem));
 }
  
 const  handelIncreaseCart =(cartItem) =>{
@@ -59,7 +59,7 @@ const  handelClearCart =() =>{
                       </svg></button>
                     </div>
                   </div>
-                  <div className="cart-product-price">${cartItem.price}</div>
+                  <div className="cart-product-price">{cartItem.price}</div>
                   <div className="cart-product-quantity"> 
                  <button onClick={()=>handelDecreaseCart(cartItem)}>-</button> 
                  <div className="count"> {cartItem.cartQuantity}</div>

@@ -20,7 +20,7 @@ const Home = () => {
    <>
    <h2>New Arrivwals</h2>
    <div className="products">
-   {data?.slice(0,-1).map((cartItem)=>{ 
+   {data?.map((cartItem)=>{ 
     return (
    <div key={cartItem.id} className="product">
    <h3>{cartItem.item}</h3> 
@@ -28,7 +28,7 @@ const Home = () => {
    <div className="details">
     <span>{cartItem.desc}</span>
     <span className="price">{cartItem.brand}</span>
-    <span className="price">${cartItem.price}</span>
+    <span className="price">{cartItem.price}</span>
    </div>
    <button onClick={()=>handleAddToCart(cartItem)}>Add TO Cart</button>
    </div>)

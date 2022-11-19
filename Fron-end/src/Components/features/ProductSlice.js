@@ -13,7 +13,7 @@ const initialState={
 export const productsFetch=createAsyncThunk(
     "products/productsFetch",
    async ()=>{
-      const response=  await axios.get('https://shoppingapiacme.herokuapp.com/shopping')
+      const response=  await axios.get('http://localhost:5000/products')
       return response?.data
  });
 

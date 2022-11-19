@@ -6,7 +6,7 @@ const initialState={
     : [],
     cartTotalQuantity:0,
     CartTotalAmount:0,
-
+ 
 }
 const  cartSlice=createSlice({
     name:"cart",
@@ -41,15 +41,15 @@ const  cartSlice=createSlice({
    })
  },
  decreaseCart (state,action) {
- const item=state.cartItems.findIndex(
+ const itemIndex=state.cartItems.findIndex(
     cartItem =>cartItem.id===action.payload.id
  )
- if (state.cartItems[item].cartQuantity > 1) {
-    state.cartItems[item].cartQuantity -=1
+ if (state.cartItems[itemIndex].cartQuantity > 1) {
+    state.cartItems[itemIndex].cartQuantity -=1
     toast.info(` Decreased ${action.payload.item} cart  quantitiy` ,{
         position:"bottom-left" ,
        })
- }else if ( state.cartItems[item].cartQuantity === 1) {
+ }else if ( state.cartItems[itemIndex].cartQuantity === 1) {
 
     const nexTcartItms=  state.cartItems.filter((cartItem) =>cartItem.id!==action.payload.id)
     state.cartItems=nexTcartItms;
