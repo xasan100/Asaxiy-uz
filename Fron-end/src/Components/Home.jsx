@@ -13,14 +13,19 @@ const Home = () => {
       dispatch(addToCart(cartItem))
       history.push('/cart')
    }
-   
+
+
+   let b = data?.[0].price.split('').slice(1,-1)
+
+
+ console.log(b+'','xasan');
     return ( 
    <div className="home-container">
    {isLoading ? <p>Loading...</p>:error ? <p> An error occured...</p>:
    <>
    <h2>New Arrivwals</h2>
    <div className="products">
-   {data?.map((cartItem)=>{ 
+   {data?.slice(0,-1).map((cartItem)=>{ 
     return (
    <div key={cartItem.id} className="product">
    <h3>{cartItem.item}</h3> 
@@ -28,7 +33,7 @@ const Home = () => {
    <div className="details">
     <span>{cartItem.desc}</span>
     <span className="price">{cartItem.brand}</span>
-    <span className="price">{cartItem.price}</span>
+    <span className="price">{cartItem.price.split('').slice(1,-1)}</span>
    </div>
    <button onClick={()=>handleAddToCart(cartItem)}>Add TO Cart</button>
    </div>)
